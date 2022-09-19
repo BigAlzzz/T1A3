@@ -17,3 +17,19 @@ class Card:
 
     def __str__(self):
         return self.rank + " of " + self.suit
+
+class Deck:
+
+    def __init__(self):
+        self.deck = [] # Empty list to start
+        for suit in suits:
+            for rank in ranks:
+                self.deck.append(Card(suit, rank)) # Adds card objecs to a list
+
+    def __str__(self):
+        deck_comp = '' #Empty list to start
+        for card in self.deck:
+            deck_comp += card '\n' + card.__str__() # Add Card Object's print string
+        return "The deck has: " + deck_comp 
+    
+    def __

@@ -39,4 +39,5 @@ class Deck:
         return single_card
     
 test_deck = Deck()
+test_deck.shuffle()
 print(test_deck)

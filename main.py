@@ -32,4 +32,9 @@ class Deck:
             deck_comp += card '\n' + card.__str__() # Add Card Object's print string
         return "The deck has: " + deck_comp 
     
-    def __
+    def shuffle(self):
+        random.shuffle(self.deck)
+    
+    def deal(self):
+        single_card = self.deck.pop()
+        return single_card

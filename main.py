@@ -170,3 +170,18 @@ def push(player, dealer, chips):
     print("Deaer and player tie! PUSH")
 
 ################### GAME LOGIC #################
+
+while True:
+    # Opening statement
+    print('Welcome to BLACKJACK')
+    # Create and shuffle a deck, deal two cards to player and dealer
+    deck = Deck()
+    deck.shuffle()
+    # Player
+    player_hand = Hand()
+    player_hand.add_card(deck.deal())
+    player_hand.add_card(deck.deal())
+    #Dealer
+    dealer_hand = Hand()
+    dealer_hand.add_card(deck.deal())
+    dealer_hand.add_card(deck.deal())

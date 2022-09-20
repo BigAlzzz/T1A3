@@ -39,4 +39,34 @@ class Deck:
         return single_card
     
 class Hand:
-    
+    def __init__(self):
+        self.cards= [] # Empty list to start
+        self.value = 0 # Zero value to start
+        self.aces = 0 # Ace value tracker
+
+    def add_card(self, card):
+        self.cards.append(card)
+        self.value += values[card.rank]
+
+        if card.rank == 'Ace':
+            self.aces += 1
+
+    def adjust_for_ace(self):
+
+        #IF TOTAL VALUE > 21 AND there is an ACE
+        # Change ace value to 1 instead of 11
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
+
+
+# test_deck = Deck()
+# test_deck.shuffle()
+
+# # Test player
+# test_player = Hand()
+# pulled_card = test_deck.deal()
+# print(pulled_card)
+# test_player.add_card(pulled_card)
+# print(test_player.value)
+

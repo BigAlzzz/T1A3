@@ -120,3 +120,30 @@ def hit_or_stand(deck, hand):
             continue
 
         break
+
+#Function to display cards
+
+def show_some(player, dealer):
+    #Display only first card of dealer
+    print("\n Dealer's Hand: ")
+    print("Second card is hidden!")
+    print(dealer.cards[0])
+
+    #Display all of player's hand/cards.
+    print("\n Players's Hand: ")
+
+
+def show_all(player, dealer):
+
+    #Show all the dealer's cards
+
+    print("\n Dealers's Hand: ")
+    for card in dealer.cards:
+        print(card)
+    # Sum and display value of picture cards (J + K == 20)
+    print(f"Value of Dealer's hand is: {dealer.value}")
+    #Show all the player's cards
+    print("\n Player's Hand: ")
+    for card in player.cards:
+        print(card)
+    print(f"Value of Players's hand is: {player.value}")

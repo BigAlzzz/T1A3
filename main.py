@@ -185,3 +185,9 @@ while True:
     dealer_hand = Hand()
     dealer_hand.add_card(deck.deal())
     dealer_hand.add_card(deck.deal())
+
+    # Chips to player default is 100
+    player_chips = Chips()
+
+    # Prompt player to place a bet
+    take_bet(player_chips)

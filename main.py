@@ -72,14 +72,14 @@ class Hand:
 
 class Chips:
 
-    def __init(self, total=100): #Default starting chip value of 100
+    def __init__(self, total=100): #Default starting chip value of 100
         self.total = total
         self.bet = 0
 
     def win_bet(self):
         self.total += self.bet
     
-    def lost_bet(self):
+    def lose_bet(self):
         self.total -= self.bet
 
 ##### FUNCTIONS #################################
@@ -89,7 +89,7 @@ def take_bets(chips):
     while True:
 
         try:
-            chips.bet = int(input("Please place a bet. "))
+            chips.bet = int(input("Please place a bet: "))
         except ValueError:
             print('Sorry please provide an integer number')
         else:
@@ -131,6 +131,8 @@ def show_some(player, dealer):
 
     #Display all of player's hand/cards.
     print("\n Players's Hand: ")
+    for card in player.cards:
+        print(card)
 
 
 def show_all(player, dealer):
@@ -190,7 +192,7 @@ while True:
     player_chips = Chips()
 
     # Prompt player to place a bet
-    take_bet(player_chips)
+    take_bets(player_chips)
 
     # Show cards (Keep 2nd dealer card hidden)
 
@@ -205,7 +207,7 @@ while True:
         show_some(player_hand, dealer_hand)
 
         # If player exceeds 21, player_busts and break loop
-        if player_hand.value >21:
+        if player_hand.value > 21:
             player_busts(player_hand, dealer_hand, player_chips)
 
             break
@@ -236,7 +238,7 @@ while True:
     new_game = input('Would you like to play another hand? y/n')
 
     if new_game[0].lower() == 'y':
-        playering = True
+        playing = True
         continue
     
     else:

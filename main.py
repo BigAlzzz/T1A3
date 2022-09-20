@@ -228,4 +228,20 @@ while True:
             player_wins(player_hand, dealer_hand, player_chips)
         else:
             push(player_hand, dealer_hand)
+        
+    # Display Player's chip total
+    print(f"\n Player's total chips are : {player_chips.total}")
+
+    #Do you want to play again
+    new_game = input('Would you like to play another hand? y/n')
+
+    if new_game[0].lower() == 'y':
+        playering = True
+        continue
+    
+    else:
+        print('Thanks for playing!')
+        break
+
+        
 

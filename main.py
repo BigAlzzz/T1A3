@@ -71,4 +71,14 @@ class Hand:
 # print(test_player.value)
 
 class Chips:
+
+    def __init(self, total=100): #Default starting chip value of 100
+        self.total = total
+        self.bet = 0
+
+    def win_bet(self):
+        self.total += self.bet
     
+    def lost_bet(self):
+        self.total -= self.bet
+

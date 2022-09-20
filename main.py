@@ -168,3 +168,5 @@ def dealer_wins(player, dealer, chips):
 
 def push(player, dealer, chips):
     print("Deaer and player tie! PUSH")
+
+################### GAME LOGIC #################

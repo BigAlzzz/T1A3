@@ -70,3 +70,5 @@ class Hand:
 # test_player.add_card(pulled_card)
 # print(test_player.value)
 
+class Chips:
+    

@@ -1,86 +1,87 @@
-import random 
+import blackjack
 
 ## Global Variables
 
-suits = ('Diamonds', 'Clubs', 'Hearts', 'Spades')
-ranks = ('Two' , 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
-values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 10, 'Queen': 10, 'King': 10, 'Ace': 11}
+# suits = ('Diamonds', 'Clubs', 'Hearts', 'Spades')
+# ranks = ('Two' , 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
+# values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 10, 'Queen': 10, 'King': 10, 'Ace': 11}
 playing = True
 
 ## Class
 
-class Card:
-    def __init__(self, suit, rank):
-        self.suit = suit
-        self.rank = rank
+# class Card:
+#     def __init__(self, suit, rank):
+#         self.suit = suit
+#         self.rank = rank
 
-    def __str__(self):
-        return self.rank + " of " + self.suit
+#     def __str__(self):
+#         return self.rank + " of " + self.suit
 
-class Deck:
+# class Deck:
 
-    def __init__(self):
-        self.deck = [] # Empty list to start
-        for suit in suits:
-            for rank in ranks:
-                self.deck.append(Card(suit, rank)) # Adds card objecs to a list
+#     def __init__(self):
+#         self.deck = [] # Empty list to start
+#         for suit in suits:
+#             for rank in ranks:
+#                 self.deck.append(Card(suit, rank)) # Adds card objecs to a list
 
-    def __str__(self):
-        deck_comp = '' #Empty list to start
-        for card in self.deck:
-            deck_comp += '\n '+ card.__str__() # Add Card Object's print string
-        return "The deck has: " + deck_comp 
+#     def __str__(self):
+#         deck_comp = '' #Empty list to start
+#         for card in self.deck:
+#             deck_comp += '\n '+ card.__str__() # Add Card Object's print string
+#         return "The deck has: " + deck_comp 
     
-    def shuffle(self):
-        random.shuffle(self.deck)
+#     def shuffle(self):
+#         random.shuffle(self.deck)
     
-    def deal(self):
-        single_card = self.deck.pop()
-        return single_card
+#     def deal(self):
+#         single_card = self.deck.pop()
+#         return single_card
     
-class Hand:
-    def __init__(self):
-        self.cards= [] # Empty list to start
-        self.value = 0 # Zero value to start
-        self.aces = 0 # Ace value tracker
+# class Hand:
+#     def __init__(self):
+#         self.cards= [] # Empty list to start
+#         self.value = 0 # Zero value to start
+#         self.aces = 0 # Ace value tracker
 
-    def add_card(self, card):
-        self.cards.append(card)
-        self.value += values[card.rank]
+#     def add_card(self, card):
+#         self.cards.append(card)
+#         self.value += values[card.rank]
 
-        if card.rank == 'Ace':
-            self.aces += 1
+#         if card.rank == 'Ace':
+#             self.aces += 1
 
-    def adjust_for_ace(self):
+#     def adjust_for_ace(self):
 
-        #IF TOTAL VALUE > 21 AND there is an ACE
-        # Change ace value to 1 instead of 11
-        while self.value > 21 and self.aces:
-            self.value -= 10
-            self.aces -= 1
+#         #IF TOTAL VALUE > 21 AND there is an ACE
+#         # Change ace value to 1 instead of 11
+#         while self.value > 21 and self.aces:
+#             self.value -= 10
+#             self.aces -= 1
 
 
-# test_deck = Deck()
+# test_deck = blackjack.Deck()
 # test_deck.shuffle()
+# print(test_deck)
 
-# # Test player
-# test_player = Hand()
-# pulled_card = test_deck.deal()
-# print(pulled_card)
-# test_player.add_card(pulled_card)
-# print(test_player.value)
+# # # Test player
+# # test_player = Hand()
+# # pulled_card = test_deck.deal()
+# # print(pulled_card)
+# # test_player.add_card(pulled_card)
+# # print(test_player.value)
 
-class Chips:
+# class Chips:
 
-    def __init__(self, total=100): #Default starting chip value of 100
-        self.total = total
-        self.bet = 0
+#     def __init__(self, total=100): #Default starting chip value of 100
+#         self.total = total
+#         self.bet = 0
 
-    def win_bet(self):
-        self.total += self.bet
+#     def win_bet(self):
+#         self.total += self.bet
     
-    def lose_bet(self):
-        self.total -= self.bet
+#     def lose_bet(self):
+#         self.total -= self.bet
 
 ##### FUNCTIONS #################################
 
@@ -172,24 +173,25 @@ def push(player, dealer, chips):
     print("Dealer and Player tie! PUSH")
 
 ################### GAME LOGIC #################
+player_chips = blackjack.Chips()
 
 while True:
     # Opening statement
     print('Welcome to BLACKJACK')
     # Create and shuffle a deck, deal two cards to player and dealer
-    deck = Deck()
+    deck = blackjack.Deck()
     deck.shuffle()
     # Player
-    player_hand = Hand()
+    player_hand = blackjack.Hand()
     player_hand.add_card(deck.deal())
     player_hand.add_card(deck.deal())
     #Dealer
-    dealer_hand = Hand()
+    dealer_hand = blackjack.Hand()
     dealer_hand.add_card(deck.deal())
     dealer_hand.add_card(deck.deal())
 
     # Chips to player default is 100
-    player_chips = Chips()
+    # player_chips = Chips()
 
     # Prompt player to place a bet
     take_bets(player_chips)
@@ -229,13 +231,13 @@ while True:
         elif dealer_hand.value < player_hand.value:
             player_wins(player_hand, dealer_hand, player_chips)
         else:
-            push(player_hand, dealer_hand)
+            push(player_hand, dealer_hand, player_chips)
         
     # Display Player's chip total
     print(f"\n Player's total chips are : {player_chips.total}")
 
     #Do you want to play again
-    new_game = input('Would you like to play another hand? y/n')
+    new_game = input('Would you like to play another hand? (y/n)')
 
     if new_game[0].lower() == 'y':
         playing = True

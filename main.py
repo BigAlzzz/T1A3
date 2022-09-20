@@ -97,3 +97,9 @@ def take_bets(chips):
                 print(f"Sorry, you do not have enough chips available! You have: {chips.total}")
             else:
                 break
+
+def hit(deck, hand):
+
+    single_card = deck.deal()
+    hand.add_card(single_card)
+    hand.adjust_for_ace()

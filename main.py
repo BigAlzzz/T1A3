@@ -167,7 +167,7 @@ def dealer_wins(player, dealer, chips):
     chips.lose_bet()
 
 def push(player, dealer, chips):
-    print("Deaer and player tie! PUSH")
+    print("Dealer and Player tie! PUSH")
 
 ################### GAME LOGIC #################
 
@@ -222,3 +222,10 @@ while True:
         # Winning Scenarios
         if dealer_hand.value >21:
             dealer_busts(player_hand, dealer_hand, player_chips)
+        elif dealer_hand.value > player_hand.value:
+            dealer_wins(player_hand, dealer_hand, player_chips)
+        elif dealer_hand.value < player_hand.value:
+            player_wins(player_hand, dealer_hand, player_chips)
+        else:
+            push(player_hand, dealer_hand)
+

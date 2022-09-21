@@ -126,27 +126,29 @@ def hit_or_stand(deck, hand):
 
 def show_some(player, dealer):
     #Display only first card of dealer
-    print("\n Dealer's Hand: ")
-    print("Second card is hidden!")
+    print("\nDealer's Hand: ")
     print(dealer.cards[0])
+    print("Second card is hidden!")
+    
 
     #Display all of player's hand/cards.
-    print("\n Players's Hand: ")
+    print("\nPlayers's Hand: ")
     for card in player.cards:
         print(card)
+    print(f"Value of Players's hand is: {player.value}")
 
 
 def show_all(player, dealer):
 
     #Show all the dealer's cards
 
-    print("\n Dealers's Hand: ")
+    print("\nDealers's Hand: ")
     for card in dealer.cards:
         print(card)
     # Sum and display value of picture cards (J + K == 20)
     print(f"Value of Dealer's hand is: {dealer.value}")
     #Show all the player's cards
-    print("\n Player's Hand: ")
+    print("\nPlayer's Hand: ")
     for card in player.cards:
         print(card)
     print(f"Value of Players's hand is: {player.value}")
@@ -234,7 +236,7 @@ while True:
             push(player_hand, dealer_hand, player_chips)
         
     # Display Player's chip total
-    print(f"\n Player's total chips are : {player_chips.total}")
+    print(f"\nPlayer's total chips are : {player_chips.total}")
 
     #Do you want to play again
     new_game = input('Would you like to play another hand? (y/n)')

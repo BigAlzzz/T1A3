@@ -1,3 +1,4 @@
+##### CLASSES #######
 import random
 
 suits = ('Diamonds', 'Clubs', 'Hearts', 'Spades')

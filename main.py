@@ -1,13 +1,9 @@
-import blackjack, sys, os
+import blackjack, sys, clearing, colorama
+from colorama import Fore
+colorama.init(autoreset=True)
 
 ## Global Variables
-
-# suits = ('Diamonds', 'Clubs', 'Hearts', 'Spades')
-# ranks = ('Two' , 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
-# values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 10, 'Queen': 10, 'King': 10, 'Ace': 11}
 playing = True
-
-
 
 ##### FUNCTIONS #################################
 
@@ -35,7 +31,7 @@ def hit_or_stand(deck, hand):
     global playing # To control while loop
 
     while True:
-        x = input('Hit or Stand? Enter h or s: ') ## Hit/h to recieve a card Stand/s to want no more cards
+        x = input('\nHit or Stand? Enter h or s: ') ## Hit/h to recieve a card Stand/s to want no more cards
 
         if x[0].lower() == 'h':
             hit(deck, hand)
@@ -82,30 +78,30 @@ def show_all(player, dealer):
 ## Function for end game scenarios
 
 def player_busts(player, dealer, chips):
-    print('PLAYER BUST!')
+    print(Fore.RED + 'PLAYER BUST!')
     chips.lose_bet()
 
 def player_wins(player, dealer, chips):
-    print('PLAYER WINS!')
+    print(Fore.GREEN + 'PLAYER WINS!')
     chips.win_bet()
 
 def dealer_busts(player, dealer, chips):
-    print("PLAYER WINS! DEALER BUST!")
+    print(Fore.GREEN + "PLAYER WINS! DEALER BUST!")
     chips.win_bet()
 
 def dealer_wins(player, dealer, chips):
-    print("Dealer Wins!")
+    print(Fore.RED + "Dealer Wins!")
     chips.lose_bet()
 
 def push(player, dealer, chips):
-    print("Dealer and Player tie! PUSH")
+    print(Fore.CYAN + "Dealer and Player tie! PUSH")
 
 def clear():
     '''
     Clear the screen for better readability
     :return: None
     '''
-    os.system('cls' if os.name == 'nt' else 'clear')
+    clearing.clear()
 
 def show_rules():
     '''
@@ -134,7 +130,7 @@ def welcome_screen():
     :return: None
     '''
     clear()
-    print("""
+    print(Fore.MAGENTA +"""
         _     _            _    _            _    
     | |   | |          | |  (_)          | |   
     | |__ | | __ _  ___| | ___  __ _  ___| | __
@@ -180,11 +176,11 @@ player_chips = blackjack.Chips()
 # playing = True
 def main():
     global playing
+    # Opening statement
+    print('Welcome to BLACKJACK')
+    print('You have a 100 chips to start with!')
+    
     while True:
-        # Opening statement
-        print('Welcome to BLACKJACK')
-        print('You have a 100 chips to start with!')
-
         # Create and shuffle a deck, deal two cards to player and dealer
         deck = blackjack.Deck()
         deck.shuffle()

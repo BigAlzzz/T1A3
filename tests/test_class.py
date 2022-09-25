@@ -61,20 +61,20 @@ def test_card_string():
     assert card.__str__() == "Two of Hearts"
 
 # # DECK
-# def test_deck_deal():
-#     deck_ordered = blackjack.Deck()
-#     # Check before shuffled
-#     pop = deck_ordered.deal()
-#     assert pop.__str__() == 'King of Clubs'
+def test_deck_deal():
+    deck_ordered = blackjack.Deck()
+    # Check before shuffled
+    pop = deck_ordered.deal()
+    assert pop.__str__() == 'King of Clubs'
 
 
 # def test_deck_shuffle():
-#     deck = blackjack.Deck()
+    deck = blackjack.Deck()
 
-#     # Check before shuffled
-#     assert deck.__str__() == deck_ordered
+    # Check before shuffled
+    assert deck.__str__() == deck_ordered
 
-#     # Check after shuffled
-#     deck.shuffle()
-#     assert deck.__str__() != deck_ordered
+    # Check after shuffled
+    deck.shuffle()
+    assert deck.__str__() != deck_ordered
 

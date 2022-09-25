@@ -1,4 +1,4 @@
-# T1A3- Kwong Gei Alvin Lai Terminal Application
+# T1A3- Kwong Fei Alvin Lai Terminal Application
 [Git Repository](https://github.com/BigAlzzz/T1A3)
 
 # **Welcome to my BlackJack terminal.**

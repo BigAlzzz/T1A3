@@ -2,7 +2,7 @@ import blackjack, sys, clearing, colorama
 from colorama import Fore
 colorama.init(autoreset=True)
 
-## Global Variables ##
+### Global Variables ###
 playing = True
 
 ##### FUNCTIONS #################################
